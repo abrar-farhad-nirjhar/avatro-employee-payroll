@@ -79,9 +79,9 @@ render = () => {
 
 
 
-    data = getAllEmployees()
-    if (!data) {
-        document.getElementById('options').innerHTML = '<option value="" disabled selected>Employee</option>' + "<option disabled>Please add Employee First</option>"
+    let data = getAllEmployees()
+    if (data.length==0) {
+        document.getElementById('options').innerHTML = '<option value="" disabled selected>Employee</option>' + '<option value="" disabled>Please add Employee first</option>'
     }
     else {
         let options = '<option value="" disabled selected>Employee</option>'
@@ -108,7 +108,6 @@ render = () => {
         let records = ''
 
         for (let i = 0; i < payrolls.length; i++) {
-            console.log(payrolls[i])
             records += `
             <tr>
                 <td>${payrolls[i].employee.name}</td>

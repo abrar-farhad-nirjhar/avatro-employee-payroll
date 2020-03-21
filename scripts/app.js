@@ -2,7 +2,7 @@
 render = () => {
     data = getAllEmployees()
 
-    if (!data) {
+    if (data.length==0) {
         document.getElementById('no-data').innerHTML = 'No records found!'
     }
     else {

@@ -30,6 +30,46 @@
 
     <div class="container">
 
+        <div class="rates">
+            <div class="value-buttons">
+                <p><strong>WORKING DAYS PER MONTH : </strong><strong id="working-days"></strong></p>
+                <a class="waves-effect waves-light btn blue-grey darken-3" id="edit-w-d">EDIT WORKING DAYS</a>
+
+            </div>
+            <div class="value-buttons">
+                <p><strong>TAX RATE: </strong><strong id="tax-rate"></strong></p>
+                <a class="waves-effect waves-light btn blue-grey darken-3" id="edit-t-r">EDIT TAX RATE</a>
+
+            </div>
+            <div class="value-buttons">
+                <p><strong>OVERTIME RATE : </strong><strong id="overtime-rate"></strong></p>
+                <a class="waves-effect waves-light btn blue-grey darken-3" id="edit-o-r">EDIT OVERTIME PAY</a>
+
+            </div>
+            
+        </div>
+
+        <table class="striped ">
+            <thead>
+                <tr>
+                    <th>EMPLOYEE</th>
+                    <th>YEAR</th>
+                    <th>MONTH</th>
+                    <th>DAYS WORKED</th>
+                    <th>OVERTIME HOURS</th>
+                    <th>SALARY (BEFORE TAXES)</th>
+                    <th>SALARY (AFTER TAXES)</th>
+
+                </tr>
+            </thead>
+            <tbody id="payroll_data">
+
+            </tbody>
+        </table>
+
+        <div style="text-align: center; color: red;"><strong><span id="no-data"></span></strong></div>
+        <br>
+
         <form class="row">
             <div class="input-field col s4">
 

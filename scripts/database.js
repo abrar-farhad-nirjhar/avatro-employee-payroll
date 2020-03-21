@@ -45,3 +45,38 @@ const clearDatabase = () => {
     localStorage.removeItem('employees')
 }
 
+
+
+
+
+
+const getAllPayrolls = () => {
+    return JSON.parse(localStorage.getItem('payrolls'))
+}
+
+const setPayroll = (data) => {
+    localStorage.setItem('payrolls', JSON.stringify(data))
+}
+
+const addPayroll = (item) => {
+    data = getAllPayrolls()
+    if (data) {
+
+        data.push(item)
+        setPayroll(data)
+    }
+    else {
+        data = []
+        data.push(item)
+        setPayroll(data)
+    }
+}
+
+
+
+// const clearDatabase = () => {
+//     localStorage.removeItem('payrolls')
+// }
+
+
+

@@ -80,7 +80,7 @@ render = () => {
 
 
     let data = getAllEmployees()
-    if (data.length==0) {
+    if (!data) {
         document.getElementById('options').innerHTML = '<option value="" disabled selected>Employee</option>' + '<option value="" disabled>Please add Employee first</option>'
     }
     else {

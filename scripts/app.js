@@ -2,7 +2,7 @@
 render = () => {
     data = getAllEmployees()
 
-    if (data.length==0) {
+    if (!data) {
         document.getElementById('no-data').innerHTML = 'No records found!'
     }
     else {
@@ -47,6 +47,8 @@ document.getElementById('addEmployee').addEventListener('click', (e) => {
     else {
         let emp = new Employee(id, name, designation, salary)
         addEmployee(emp)
+        console.log(emp)
+        console.log(getAllEmployees())
         render()
     }
 })

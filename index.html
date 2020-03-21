@@ -28,18 +28,61 @@
     </div>
 
 
+    <div class="container">
+
+        <form class="row">
+            <div class="input-field col s4">
+
+                <select id="options" required></select>
+
+            </div>
+
+            <div class="input-field col s2">
+                <input placeholder="Year" id="year" type="number" class="validate" required>
+            </div>
+
+            <div class="input-field col s2">
+                <select id="month" required>
+                    <option value="" disabled selected>Month</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+
+                </select>
+            </div>
+            <div class="input-field col s2">
+                <input placeholder="Days Worked" id="days" type="number" class="validate" required>
+            </div>
+            <div class="input-field col s2">
+                <input placeholder="Overtime hours" id="overtime" type="number" class="validate" required>
+            </div>
+
+            <button type="submit" class="waves-effect waves-light btn blue-grey darken-3 right modal-trigger" id="addRecord">Add Record</button>
+
+        </form>
 
 
 
 
 
+    </div>
 
-
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="scripts/employee.js"></script>
     <script src="scripts/payroll.js"></script>
     <script src="scripts/database.js"></script>
-    <script src="scripts/app.js"></script>
+    <script src="scripts/app-index.js"></script>
+
 
 </body>
 

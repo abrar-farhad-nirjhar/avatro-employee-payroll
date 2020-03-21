@@ -26,6 +26,12 @@ const removeEmployee = (id) => {
     setEmployee(data)
 }
 
+const getEmployee = (id) => {
+    data = getAllEmployees()
+    data = data.filter((item) => item.id == id)
+    return data[0]
+}
+
 const getLength = () => {
     if (getAllEmployees()) {
         return getAllEmployees().length
@@ -38,3 +44,4 @@ const getLength = () => {
 const clearDatabase = () => {
     localStorage.removeItem('employees')
 }
+

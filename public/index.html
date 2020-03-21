@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Avatro</title>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper blue-grey darken-3">
+            <div class="brand-logo center">Avatro Payroll</div>
+        </div>
+    </nav>
+    <div class="row ">
+        <div class="col s12 blue-grey darken-3">
+            <ul class="tabs blue-grey darken-3">
+                <li class="tab col s3"></li>
+                <li class="tab col s3"><a class="my-tab" href="index.html">Payroll</a></li>
+                <li class="tab col s3"><a class="my-tab" href="employees.html">Employees</a></li>
+                <li class="tab col s3"></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="container">
+
+        <div class="rates">
+            <div class="value-buttons">
+                <p><strong>WORKING DAYS PER MONTH : </strong><strong id="working-days"></strong></p>
+                <a class="waves-effect waves-light btn blue-grey darken-3" id="edit-w-d">EDIT WORKING DAYS</a>
+
+            </div>
+            <div class="value-buttons">
+                <p><strong>TAX RATE: </strong><strong id="tax-rate"></strong></p>
+                <a class="waves-effect waves-light btn blue-grey darken-3" id="edit-t-r">EDIT TAX RATE</a>
+
+            </div>
+            <div class="value-buttons">
+                <p><strong>OVERTIME RATE : </strong><strong id="overtime-rate"></strong></p>
+                <a class="waves-effect waves-light btn blue-grey darken-3" id="edit-o-r">EDIT OVERTIME PAY</a>
+
+            </div>
+            
+        </div>
+
+        <table class="striped ">
+            <thead>
+                <tr>
+                    <th>EMPLOYEE</th>
+                    <th>YEAR</th>
+                    <th>MONTH</th>
+                    <th>DAYS WORKED</th>
+                    <th>OVERTIME HOURS</th>
+                    <th>SALARY (BEFORE TAXES)</th>
+                    <th>SALARY (AFTER TAXES)</th>
+
+                </tr>
+            </thead>
+            <tbody id="payroll_data">
+
+            </tbody>
+        </table>
+
+        <div style="text-align: center; color: red;"><strong><span id="no-data"></span></strong></div>
+        <br>
+
+        <form class="row">
+            <div class="input-field col s4">
+
+                <select id="options" required></select>
+
+            </div>
+
+            <div class="input-field col s2">
+                <input placeholder="Year" id="year" type="number" class="validate" required>
+            </div>
+
+            <div class="input-field col s2">
+                <select id="month" required>
+                    <option value="" disabled selected>Month</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+
+                </select>
+            </div>
+            <div class="input-field col s2">
+                <input placeholder="Days Worked" id="days" type="number" class="validate" required>
+            </div>
+            <div class="input-field col s2">
+                <input placeholder="Overtime hours" id="overtime" type="number" class="validate" required>
+            </div>
+
+            <button type="submit" class="waves-effect waves-light btn blue-grey darken-3 right modal-trigger" id="addRecord">Add Record</button>
+
+        </form>
+
+
+
+
+
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="scripts/employee.js"></script>
+    <script src="scripts/payroll.js"></script>
+    <script src="scripts/database.js"></script>
+    <script src="scripts/app-index.js"></script>
+
+
+</body>
+
+</html>

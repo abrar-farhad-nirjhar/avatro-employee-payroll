@@ -1,0 +1,16 @@
+.my-tab{
+    color: #eceff1;
+}
+
+.tabs .tab a{
+    color: #eceff1;
+}
+
+.rates{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.value-buttons{
+    text-align: center;
+}

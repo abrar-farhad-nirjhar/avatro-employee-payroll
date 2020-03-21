@@ -1,71 +1,71 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $('select').formSelect();
 });
 
-totalSalaryBeforeTaxes = (s,d_w, o_w) =>{
+totalSalaryBeforeTaxes = (s, d_w, o_w) => {
 
     let overtime_rate = localStorage.getItem('overtime_rate')
-    if(!overtime_rate){
+    if (!overtime_rate) {
         overtime_rate = 0
     }
 
     let working_days = localStorage.getItem('working_days')
-    if(!working_days){
+    if (!working_days) {
         working_days = 20
     }
 
-    let salary = (s/working_days)*d_w
+    let salary = (s / working_days) * d_w
 
-    salary+=(o_w*overtime_rate)
+    salary += (o_w * overtime_rate)
 
 
     return salary
 
 }
 
-total_salary_after_taxes = (s) =>{
+total_salary_after_taxes = (s) => {
 
     let tax_rate = localStorage.getItem('tax_rate')
-    if(!tax_rate){
+    if (!tax_rate) {
         tax_rate = 5
     }
 
-    return s - ((s*tax_rate)/100)
+    return s - ((s * tax_rate) / 100)
 }
 
-document.getElementById('edit-w-d').addEventListener('click', ()=>{
+document.getElementById('edit-w-d').addEventListener('click', () => {
     days = prompt('Enter the number of working days per month:')
     localStorage.setItem('working_days', days)
     render()
 })
-document.getElementById('edit-t-r').addEventListener('click', ()=>{
+document.getElementById('edit-t-r').addEventListener('click', () => {
     rate = prompt('Enter the tax rate in percent:')
     localStorage.setItem('tax_rate', rate)
     render()
 })
-document.getElementById('edit-o-r').addEventListener('click', ()=>{
+document.getElementById('edit-o-r').addEventListener('click', () => {
     rate = prompt('Enter the overtime pay per hour:')
     localStorage.setItem('overtime_rate', rate)
     render()
 })
 
 
-render = () =>{
+render = () => {
     let working_days = localStorage.getItem('working_days')
-    if(!working_days){
+    if (!working_days) {
         working_days = 20
     }
     document.getElementById('working-days').innerHTML = working_days
 
 
     let overtime_rate = localStorage.getItem('overtime_rate')
-    if(!overtime_rate){
+    if (!overtime_rate) {
         overtime_rate = 0
     }
     document.getElementById('overtime-rate').innerHTML = overtime_rate
 
     let tax_rate = localStorage.getItem('tax_rate')
-    if(!tax_rate){
+    if (!tax_rate) {
         tax_rate = 5
     }
 
@@ -80,36 +80,36 @@ render = () =>{
 
 
     data = getAllEmployees()
-    if(!data){
-        document.getElementById('options').innerHTML = '<option value="" disabled selected>Employee</option>'+"<option disabled>Please add Employee First</option>"
+    if (!data) {
+        document.getElementById('options').innerHTML = '<option value="" disabled selected>Employee</option>' + "<option disabled>Please add Employee First</option>"
     }
-    else{
+    else {
         let options = '<option value="" disabled selected>Employee</option>'
-        
-        for(let i=0; i<data.length; i++){
-            options+=`
+
+        for (let i = 0; i < data.length; i++) {
+            options += `
 
             <option value="${data[i].id}">${data[i].name}</option>
             
             `
 
         }
-        
+
 
         document.getElementById('options').innerHTML = options
     }
 
     payrolls = getAllPayrolls()
 
-    if(!payrolls){
+    if (!payrolls) {
         document.getElementById('no-data').innerHTML = "No Records Found!"
     }
-    else{
+    else {
         let records = ''
 
-        for(let i=0; i<payrolls.length; i++){
+        for (let i = 0; i < payrolls.length; i++) {
             console.log(payrolls[i])
-            records+=`
+            records += `
             <tr>
                 <td>${payrolls[i].employee.name}</td>
                 <td>${payrolls[i].year}</td>
@@ -127,11 +127,11 @@ render = () =>{
             `
         }
         document.getElementById('payroll_data').innerHTML = records
-        
+
     }
 }
 
-document.getElementById('addRecord').addEventListener('click', (e)=>{
+document.getElementById('addRecord').addEventListener('click', (e) => {
 
     e.preventDefault()
 
@@ -141,11 +141,20 @@ document.getElementById('addRecord').addEventListener('click', (e)=>{
     let days = document.getElementById('days').value
     let overtime = document.getElementById('overtime').value
 
-    
+    if (!employee_id || !year || !month || !month || !overtime) {
+        alert('All the information but be provided!')
+    }
+    else {
 
-    let record = new Payroll(getEmployee(employee_id), year, month, days, overtime)
-    addPayroll(record)
-    render()
+        let record = new Payroll(getEmployee(employee_id), year, month, days, overtime)
+        addPayroll(record)
+        render()
+
+    }
+
+
+
+
 
 
 })

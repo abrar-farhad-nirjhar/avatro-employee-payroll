@@ -1,15 +1,15 @@
 
-render = () =>{
+render = () => {
     data = getAllEmployees()
 
-    if(!data){
+    if (!data) {
         document.getElementById('no-data').innerHTML = 'No records found!'
     }
-    else{
+    else {
         let display = ''
 
-        for(let i=0; i<data.length; i++){
-            display+= `
+        for (let i = 0; i < data.length; i++) {
+            display += `
 
             <tr>
                 <td>${data[i].id}</td>
@@ -27,20 +27,26 @@ render = () =>{
     }
 }
 
-remove = (id) =>{
+remove = (id) => {
     removeEmployee(id)
     render()
 }
 render()
 
 
-document.getElementById('addEmployee').addEventListener('click', (e)=>{
+document.getElementById('addEmployee').addEventListener('click', (e) => {
     e.preventDefault()
     let name = document.getElementById('name').value
     let designation = document.getElementById('designation').value
     let salary = document.getElementById('salary').value
     let id = Math.floor(Math.random() * 1000000)
-    let emp = new Employee(id, name, designation, salary)
-    addEmployee(emp)
-    render()
+
+    if (!name || !designation || !salary) {
+        alert("All the infromation must be provided!")
+    }
+    else {
+        let emp = new Employee(id, name, designation, salary)
+        addEmployee(emp)
+        render()
+    }
 })
